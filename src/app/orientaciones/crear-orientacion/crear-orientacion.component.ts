@@ -18,65 +18,52 @@ export class CrearOrientacionComponent implements OnInit {
   programaEstudio: String = '';
   introduccion: String = '';
   enfasis: String = '';
-  nivelAprendizaje: String = '';
-  profesorAutor: String;
-  anhoAcademico: Number;
-  semestre: Number;
-  puntajeTotal: Number;
-  preguntaEnunciado: String = '';
-  respuesta: String = '';
+  proposito_formativo: String = '';
+  asignaturas: any[] = [];
+  
   domain: string = 'http://localhost:10010';
-  actividad: any;
+  orientacion: any;
 
-  constructor(  private formBuilder: FormBuilder, private http: HttpClient, private router: Router){
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
 
     this.rForm = formBuilder.group({
 
-      'asignatura': [null, Validators.required],
-      'baseCurricular': [null, Validators.required],
+      'basesCurriculares': [null, Validators.required],
       'programaEstudio': [null, Validators.required],
       'introduccion': [null, Validators.required],
-      'asignaturas': this.formBuilder.array([]),
-      'enfasis': [null, Validators.required],
-    //  'respuesta': [null, Validators.required],
-    
+      'asignaturas': this.formBuilder.array([this.initAsignatura()])
+
     });
   }
 
   ngOnInit() {
   }
+  initAsignatura() {
+    return this.formBuilder.group({
+      asignatura: [null, Validators.required],
+      enfasis: [null, Validators.required],
+      proposito_formativo: [null, Validators.required]
+    });
+  }
+  removeAsignatura(i: number) {
+    const control = <FormArray>this.rForm.controls['asignaturas'];
+    control.removeAt(i);
+  }
+  addAsignatura(): void {
+    const control = <FormArray>this.rForm.controls['asignaturas'];
+    control.push(this.initAsignatura());
+  }
 
   postOrientacion(post) {
- 
+
     console.log(post);
-    
-    this.http.post(`${this.domain}/orientaciones`, post).subscribe(data =>{
+
+    this.http.post(`${this.domain}/orientaciones`, post).subscribe(data => {
       console.log(data);
-      this.actividad = data;
-      console.log(this.actividad);
+      this.orientacion = data;
+      console.log(this.orientacion);
     });
 
-  
-  }
-
-  onAddAlternativas() {
-
-    const control = new FormControl(null, Validators.required);
-    (<FormArray>this.rForm.get('preguntaAlternativas')).push(control);
-
-  }
-
-  onAddRespuestaAlternativas() {
-
-    const control = new FormControl(null, Validators.required);
-    (<FormArray>this.rForm.get('respuestaAlternativas')).push(control);
-
-  }
-
-  onAddRetroalimentacion() {
-
-    const control = new FormControl(null, Validators.required);
-    (<FormArray>this.rForm.get('retroalimentacion')).push(control);
 
   }
   onAddAsignaturas() {
@@ -86,6 +73,6 @@ export class CrearOrientacionComponent implements OnInit {
 
   }
 
-  
+
 
 }
