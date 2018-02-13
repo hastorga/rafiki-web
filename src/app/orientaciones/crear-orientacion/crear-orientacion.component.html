@@ -1,3 +1,63 @@
-<p>
-  crear-orientacion works!
-</p>
+<h1>Crear Orientación Curricular </h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <form class="form-horizontal" [formGroup]="rForm" (ngSubmit)="postOrientacion(rForm.value)">
+
+        <h3></h3>
+        <div class="form-group">
+          <label class="control-label col-sm-5">Base Curricular</label>
+          <div class="col-sm-12">
+            <input class="form-control" type="text" formControlName="baseCurricular">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-5">Programa de estudio</label>
+          <div class="col-sm-12">
+            <input class="form-control" type="text" formControlName="programaEstudio">
+            <br>
+            <div class="alert alert-danger" role="alert" *ngIf="!rForm.controls['programaEstudio'].valid && !rForm.controls['programaEstudio'].touched">
+              Este campo es requerido
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-sm-12" formArrayName="asignaturas">
+          <h5>asignaturas
+            <button class="btn btn-secundary col-sm-2 float-right" type="button" (click)="onAddAsignaturas()">
+              <i class="fas fa-plus-circle"></i> Añadir</button>
+          </h5>
+          <br>
+          <div class="form-group row" *ngFor="let asignatura of rForm.get('asignaturas').controls; let i=index">
+              <label class="control-label col-sm-5">Asignatura </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control col-sm-10" [formControlName]="asignatura">
+            </div>
+            <label class="control-label col-sm-5">Propósito </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control col-sm-10" [formControlName]="proposito">
+            </div>
+            <label class="control-label col-sm-5">Énfasis </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control col-sm-10" [formControlName]="enfasis">
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="form-group" align="center">
+          <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-primary" value="Crear Orientación Curricular">
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
