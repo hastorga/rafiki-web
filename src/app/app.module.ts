@@ -4,9 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { RouterModule, Routes } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Observable }     from 'rxjs/Observable';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HTTP_INTERCEPTORS
+} from '@angular/common/http';
 
 
 // Servicios
@@ -60,7 +67,7 @@ import { CrearOrientacionComponent } from './orientaciones/crear-orientacion/cre
 
 import { ListaActividadesComponent } from './actividad/lista-actividades/lista-actividades.component';
 
-import { ListaCursosComponent } from './curso/lista-cursos/lista-cursos.component';
+
 import { CrearActividadComponent } from './actividad/crear-actividad/crear-actividad.component';
 import { DetallesActividadComponent } from './actividad/detalles-actividad/detalles-actividad.component';
 import { ModificarActividadComponent } from './actividad/modificar-actividad/modificar-actividad.component';
@@ -100,19 +107,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ListaOrganizacionesComponent,
-    CrearOrganizacionComponent,
-    ModificarOrganizacionComponent,
-    DetallesOrganizacionComponent,
-    ListaEvaluacionesComponent,
-    CrearEvaluacionComponent,
-    DetallesEvaluacionComponent,
-    ModificarEvaluacionComponent,
+   
+    
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    orientacion_curricular,
-
     ErroresRutasComponent ,
     ListaActividadesComponent,
     CrearActividadComponent,
@@ -123,10 +122,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -147,7 +145,7 @@ const appRoutes: Routes = [
     AlertService,
     AuthenticationService,
     UserService,
-    {
+     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
