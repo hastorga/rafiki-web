@@ -23,7 +23,7 @@ export class ModificarNivelComponent implements OnInit {
   decreto: String = '';
   id: String;
 
-  constructor(private formBuilder: FormBuilder,private HttpClient: HttpClient, private route: ActivatedRoute,) { 
+  constructor(private formBuilder: FormBuilder,private HttpClient: HttpClient, private route: ActivatedRoute) { 
 
     this.rForm = formBuilder.group({
     'sigla': [Validators.required],
