@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-8 offset-sm-2" *ngIf="!planestudio; else forminfo">
+          <form class="form-horizontal" [formGroup]="rForm" (ngSubmit)="postOrientacion(rForm.value)">
+              <div class="form-group">
+                  <label class="control-label col-sm-12">Introducción</label>
+                  <div class="col-sm-12">
+                      <input class="form-control" type="text" formControlName="introduccion">
+                      <small [hidden]="rForm.controls.introduccion.valid">
+                          Una introducción es requerida
+                      </small>
+                  </div>
+              </div>
+
+
+              <div class="form-group">
+                  <label class="control-label col-sm-12">Bases Curriculares</label>
+                  <div class="col-sm-12">
+                      <input class="form-control" type="text" formControlName="basesCurriculares">
+                      <small [hidden]="rForm.controls.basesCurriculares.valid">
+                          Se requiere que ingrese bases curriculares
+                      </small>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-sm-12">Programa de Estudio</label>
+                  <div class="col-sm-12">
+                      <input class="form-control" type="text" formControlName="programaEstudio">
+                      <small [hidden]="rForm.controls.programaEstudio.valid">
+                          El programa de estudio es requerido
+                      </small>
+                  </div>
+              </div>
+              
+
+              <div class="col-sm-12" formArrayName="asignaturas">
+                  <h5>Añadir asignatura
+                      <button class="btn btn-secundary col-sm-2 float-right" type="button" (click)="addAsignatura()">
+                          <i class="fas fa-plus-circle"></i>
+                      </button>
+                  </h5>
+                  <br>
+                  <div class="form-group row" *ngFor="let asignatura of rForm.controls.asignaturas.controls; let i=index">
+                      <div class="col-sm-12 text-center">
+                          <label class="col-form-label">#{{i+1}} Asignatura</label>
+                      </div>
+                      <div class="col-sm-12" [formGroupName]="i">
+                          <div class="col-sm-12">
+                              <label class="col-sm-1 col-form-label">Asignatura</label>
+                              <div class="col-sm-12">
+                                  <input class="form-control form-control col-sm-12" type="text" formControlName="asignatura">
+                                  <small [hidden]="rForm.controls.asignaturas.controls[i].controls.asignatura.valid">
+                                      El nombre es requerido
+                                  </small>
+                              </div>
+                              <div class="col-sm-12">
+                                  <label class="col-form-label"> Propósito Formativo </label>
+                                  <input class="form-control form-control col-sm-12" type="text" formControlName="proposito_formativo">
+                                  <small [hidden]="rForm.controls.asignaturas.controls[i].controls.proposito_formativo.valid">
+                                      Es requerido un propósito formativo.
+                                  </small>
+                              </div>
+                              <div class="col-sm-12">
+                                  <label class="col-form-label">Énfasis </label>
+                                  <input class="form-control form-control col-sm-12" type="text" formControlName="enfasis">
+                                  <small [hidden]="rForm.controls.asignaturas.controls[i].controls.enfasis.valid">
+                                     Es requerido el énfasis
+                                  </small>
+                                  <!-- <div class="alert alert-danger" role="alert" [hidden]="rForm.controls.asignaturas.controls[i].controls.horasAnuales.valid">
+                                      Las horas anuales son requeridas
+                                  </div> -->
+                              </div>
+                              <br>
+                              <div class="text-center">
+                                  <button class="btn btn-danger col-sm-5" (click)=removeAsignatura(i)>
+                                      <i class="fas fa-trash-alt"></i> Borrar
+                                  </button>
+                              </div>
+                              <hr>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group text-center">
+                  <div class="col-sm-offset-2 col-sm-12">
+                      <input type="submit" class="btn btn-primary col-sm-8" value="Crear Plan Estudio" [disabled]="!rForm.valid">
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

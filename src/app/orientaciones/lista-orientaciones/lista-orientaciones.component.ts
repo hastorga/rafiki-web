@@ -3,11 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Routes } from '@angular/router';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 import { PipeTransform, Pipe } from '@angular/core';
-
 @Component({
-  selector: 'app-lista-niveles',
-  templateUrl: './lista-niveles.component.html',
-  styleUrls: ['./lista-niveles.component.css'],
+  selector: 'app-lista-orientaciones',
+  templateUrl: './lista-orientaciones.component.html',
+  styleUrls: ['./lista-orientaciones.component.css'],
   animations: [
     trigger('animation', [
       transition('* => *', [
@@ -29,21 +28,22 @@ import { PipeTransform, Pipe } from '@angular/core';
     ])
   ]
 })
-export class ListaNivelesComponent implements OnInit {
-  domain: String = 'http://localhost:10010';
-  nivel: any;
+export class ListaOrientacionesComponent implements OnInit {
 
-  constructor(private HttpClient: HttpClient) { }
+  domain: String = 'http://localhost:10010'
 
-  getNiveles() {
-    this.HttpClient.get(`${this.domain}/niveles`).subscribe(data => {
-      console.log(data);
-      this.nivel = data;
+  orientacion: any
+
+  constructor(private HttpClient:HttpClient) { }
+  getOrientaciones() {
+    this.HttpClient.get(`${this.domain}/orientaciones`).subscribe(data => {
+      this.orientacion = data;
+      console.log(this.orientacion);
     });
   }
 
-  deleteNivel(id) {
-    this.HttpClient.delete(`${this.domain}/niveles/${id}`).subscribe(data => {
+  deleteOrientacion(id) {
+    this.HttpClient.delete(`${this.domain}/orientaciones/${id}`).subscribe(data => {
     this.ngOnInit();
     });
     
@@ -51,7 +51,8 @@ export class ListaNivelesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getNiveles();
+    this.getOrientaciones();
   }
+
 
 }

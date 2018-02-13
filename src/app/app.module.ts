@@ -31,6 +31,7 @@ import { ModificarEvaluacionComponent } from './evaluacion/modificar-evaluacion/
 
 import { CursoModule } from './curso/curso.module';
 import { NivelModule } from './niveles/nivel.module';
+import { OrientacionesModule } from './orientaciones/orientaciones.module';
 
 import { HomeComponent } from './authentication-authorization/home/home.component';
 import { AuthGuard } from './authentication-authorization/_guards/auth.guard';
@@ -48,6 +49,12 @@ import { CrearNivelComponent } from './niveles/crear-nivel/crear-nivel.component
 import { DetalleNivelComponent } from './niveles/detalle-nivel/detalle-nivel.component';
 import { ModificarNivelComponent } from './niveles/modificar-nivel/modificar-nivel.component';
 import { ErroresRutasComponent } from './errores-rutas/errores-rutas.component';
+import { ListaOrientacionesComponent } from './orientaciones/lista-orientaciones/lista-orientaciones.component';
+import { DetalleOrientacionComponent } from './orientaciones/detalle-orientacion/detalle-orientacion.component';
+import { ModificarOrientacionComponent } from './orientaciones/modificar-orientacion/modificar-orientacion.component';
+import { CrearOrientacionComponent } from './orientaciones/crear-orientacion/crear-orientacion.component';
+
+
 
 
 
@@ -71,7 +78,12 @@ const appRoutes: Routes = [
   { path: 'niveles/:id/editar', component: ModificarNivelComponent  },
   { path: 'cursos', component: ListaCursosComponent }, // momentaneo, eliminar luego y usar el modulo completo
   { path: 'cursos/crear-curso', component: CrearCursoComponent  },
-  { path: 'path-error', component: ErroresRutasComponent  },
+  { path: 'orientaciones_curriculares/crear-orientacion', component: CrearOrientacionComponent  },
+  { path: 'orientaciones_curriculares', component: ListaOrientacionesComponent  },
+  { path: 'orientaciones_curriculares/:id', component: DetalleOrientacionComponent  },
+  { path: 'orientaciones_curriculares/:id/editar', component: ModificarOrientacionComponent  },
+  { path: 'path-error', component: ErroresRutasComponent  },  
+  
 
   
 
@@ -99,11 +111,14 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ErroresRutasComponent 
+    orientacion_curricular,
+
+    ErroresRutasComponent ,
     ListaActividadesComponent,
     CrearActividadComponent,
     DetallesActividadComponent,
     ModificarActividadComponent
+
   ],
   imports: [
     BrowserModule,
@@ -122,7 +137,8 @@ const appRoutes: Routes = [
     HttpModule,
     OrganizacionModule,
     CursoModule,
-    NivelModule
+    NivelModule,
+    OrientacionesModule
   ],
   providers: [
     OrganizacionService, 
