@@ -57,16 +57,14 @@
                               </div>
                               <div class="col-sm-12">
                                   <label class="col-form-label">Propósito Formativo </label>
-                                  <input class="form-control form-control col-sm-12" [value]="orientacion.asignaturas[i].proposito_formativo" type="text"
-                                      formControlName="proposito_formativo">
+                                  <input class="form-control form-control col-sm-12" type="text" [value]="orientacion.asignaturas[i].proposito_formativo" formControlName="proposito_formativo">
                                   <small [hidden]="rForm.controls.asignaturas.controls[i].controls.proposito_formativo.valid">
                                       Es requerido que ingrese un propósito formativo
                                   </small>
                               </div>
                               <div class="col-sm-12">
                                   <label class="col-form-label">Énfasis </label>
-                                  <input class="form-control form-control col-sm-12" [value]="orientacion.asignaturas[i].enfasis" type="text"
-                                      formControlName="enfasis">
+                                  <input class="form-control form-control col-sm-12" type="text" [value]="orientacion.asignaturas[i].enfasis" formControlName="enfasis">
                                   <small [hidden]="rForm.controls.asignaturas.controls[i].controls.enfasis.valid">
                                       Es requerido el énfasis de la asignatura
                                   </small>
