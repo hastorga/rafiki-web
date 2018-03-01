@@ -78,17 +78,17 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'path-error', component: ErroresRutasComponent  },
-  { path: 'register', component: RegisterComponent },
-  { path: 'niveles/crear-nivel', component: CrearNivelComponent  },
-  { path: 'niveles', component: ListaNivelesComponent },
-  { path: 'niveles/:id', component: DetalleNivelComponent  },
-  { path: 'niveles/:id/editar', component: ModificarNivelComponent  },
-  { path: 'cursos', component: ListaCursosComponent }, // momentaneo, eliminar luego y usar el modulo completo
-  { path: 'cursos/crear-curso', component: CrearCursoComponent  },
-  { path: 'orientaciones_curriculares/crear-orientacion', component: CrearOrientacionComponent  },
-  { path: 'orientaciones_curriculares', component: ListaOrientacionesComponent  },
-  { path: 'orientaciones_curriculares/:id', component: DetalleOrientacionComponent  },
-  { path: 'orientaciones_curriculares/:id/editar', component: ModificarOrientacionComponent  },
+  // { path: 'register', component: RegisterComponent },
+  // { path: 'niveles/crear-nivel', component: CrearNivelComponent  },
+  // { path: 'niveles', component: ListaNivelesComponent },
+  // { path: 'niveles/:id', component: DetalleNivelComponent  },
+  // { path: 'niveles/:id/editar', component: ModificarNivelComponent  },
+  // { path: 'cursos', component: ListaCursosComponent }, // momentaneo, eliminar luego y usar el modulo completo
+  // { path: 'cursos/crear-curso', component: CrearCursoComponent  },
+  // { path: 'orientaciones_curriculares/crear-orientacion', component: CrearOrientacionComponent  },
+  // { path: 'orientaciones_curriculares', component: ListaOrientacionesComponent  },
+  // { path: 'orientaciones_curriculares/:id', component: DetalleOrientacionComponent  },
+  // { path: 'orientaciones_curriculares/:id/editar', component: ModificarOrientacionComponent  },
   { path: 'path-error', component: ErroresRutasComponent  },  
   
 
@@ -96,10 +96,10 @@ const appRoutes: Routes = [
 
 
   //ACTIVIDAD
-  { path: 'actividades', component: ListaActividadesComponent },
-  { path: 'actividades/crear', component: CrearActividadComponent }, 
-  { path: 'actividades/:id', component: DetallesActividadComponent },
-  { path: 'actividades/:id/editar', component: ModificarActividadComponent },
+  // { path: 'actividades', component: ListaActividadesComponent },
+  // { path: 'actividades/crear', component: CrearActividadComponent }, 
+  // { path: 'actividades/:id', component: DetallesActividadComponent },
+  // { path: 'actividades/:id/editar', component: ModificarActividadComponent },
    { path: '**', redirectTo: 'path-error' }
 
 ];
