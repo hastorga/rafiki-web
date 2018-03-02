@@ -71,16 +71,20 @@ import { ListaActividadesComponent } from './actividad/lista-actividades/lista-a
 import { CrearActividadComponent } from './actividad/crear-actividad/crear-actividad.component';
 import { DetallesActividadComponent } from './actividad/detalles-actividad/detalles-actividad.component';
 import { ModificarActividadComponent } from './actividad/modificar-actividad/modificar-actividad.component';
+import { VistaDetalleComponent } from './planes-estudio/vista-detalle/vista-detalle.component';
+
 
 
 const appRoutes: Routes = [
 
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'path-error', component: ErroresRutasComponent  },
+  { path: 'planestudio/detalle', component: VistaDetalleComponent  },  
+  
+  
   // { path: 'register', component: RegisterComponent },
   // { path: 'niveles/crear-nivel', component: CrearNivelComponent  },
-  // { path: 'niveles', component: ListaNivelesComponent },
+   { path: 'niveles', component: ListaNivelesComponent },
   // { path: 'niveles/:id', component: DetalleNivelComponent  },
   // { path: 'niveles/:id/editar', component: ModificarNivelComponent  },
   // { path: 'cursos', component: ListaCursosComponent }, // momentaneo, eliminar luego y usar el modulo completo
@@ -116,7 +120,8 @@ const appRoutes: Routes = [
     ListaActividadesComponent,
     CrearActividadComponent,
     DetallesActividadComponent,
-    ModificarActividadComponent
+    ModificarActividadComponent,
+    VistaDetalleComponent
 
   ],
   imports: [
