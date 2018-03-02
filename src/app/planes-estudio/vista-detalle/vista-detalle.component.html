@@ -1,0 +1,35 @@
+<head>
+  <meta charset="utf-8" />
+  <title>Lista de niveles </title>
+  <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+</head>
+
+
+<div *ngIf="nivel" [@animation]="nivel.length">
+  <div id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="card" style="width: 50rem;">
+      <h3 class="card-header">Vista de planes de estudio</h3>
+      <div class="card-header" *ngFor="let nivel of nivel.data; let j = index " role="tab" id="headingOne">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" data-parent="#accordion" href="#{{nivel._id}}" aria-expanded="true" aria-controls="collapseOne">
+            {{nivel.grado}}º - {{nivel.tipo_nivel}}
+          </a>
+        </h5>
+
+
+        <div id="{{nivel._id}}" class="collapse show" role="tabpanel" aria-labelledby="nivel._id">
+          <div class="card-block">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+            non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+            labore sustainable VHS.
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
