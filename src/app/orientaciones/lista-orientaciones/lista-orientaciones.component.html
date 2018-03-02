@@ -21,26 +21,20 @@
         <th scope="col"> Programa de Estudio</th>
         <th scope="col"> Detalle</th>
         <th scope="col"> Acciones</th>
-
-
-
-
       </tr>
     </thead>
     <tbody *ngIf="orientacion" [@animation]="orientacion.length">
       <tr *ngFor="let orientacion of orientacion.orientacion; let i = index" align="center">
-
-
         <td>{{ orientacion._id }}</td>
         <td>{{ orientacion.introduccion }}</td>
         <td>{{ orientacion.basesCurriculares }}</td>
         <td>{{ orientacion.programaEstudio }}</td>
 
-
         <th>
           <button type="button" class="btn btn-info" routerLink="/orientaciones_curriculares/{{orientacion._id}} ">
             <i class="fas fa-info-circle"></i> Ver detalle</button>
         </th>
+
         <td>
           <button type="button" class="btn btn-info" routerLink="/orientaciones_curriculares/{{orientacion._id}}/editar">
             <i class="fas fa-edit"></i> editar </button>
@@ -48,6 +42,7 @@
           <button type="button" class="btn btn-info" routerLink='/orientaciones_curriculares' (click)="deleteOrientacion(orientacion._id)">
             <i class="fas fa-trash-alt"></i> Eliminar </button>
         </td>
+
       </tr>
     </tbody>
   </table>
