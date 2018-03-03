@@ -7,7 +7,7 @@
 
 <div *ngIf="nivel" [@animation]="nivel.length">
   <div id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="card" >
+    <div class="card">
       <h3 class="card-header">Vista de planes de estudio</h3>
       <div class="card-header " *ngFor="let nivel of nivel.data; let j = index " role="tab" id="headingOne">
         <h5 class="mb-0">
@@ -17,17 +17,17 @@
         </h5>
         <hr>
 
-        <div id="{{nivel._id}}"  class="collapse show" role="tabpanel" aria-labelledby="nivel._id">
+        <div id="{{nivel._id}}" class="collapse show" role="tabpanel" aria-labelledby="nivel._id">
           <div class="card-block">
-            
+
             <h6 align="left"> Objetivos de aprendizaje del nivel </h6>
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>MongoDB ID</th>
-                  <th>Tipo de objetivo de aprendizaje</th>
-                  <th>Descripción</th>
+                  <th scope="col">#</th>
+                  <th scope="col">MongoDB ID</th>
+                  <th scope="col">Tipo de objetivo de aprendizaje</th>
+                  <th scope="col">Descripción</th>
                 </tr>
               </thead>
               <tbody *ngFor="let oa of nivel.oa; let k = index ">
@@ -37,13 +37,12 @@
                   <td>{{oa.tipo}}</td>
                   <td>{{oa.descripcion}}</td>
                 </tr>
-               
               </tbody>
+
             </table>
+            
           </div>
-
         </div>
-
       </div>
     </div>
   </div>
