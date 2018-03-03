@@ -65,6 +65,7 @@ import { CrearActividadComponent } from './actividad/crear-actividad/crear-activ
 import { DetallesActividadComponent } from './actividad/detalles-actividad/detalles-actividad.component';
 import { ModificarActividadComponent } from './actividad/modificar-actividad/modificar-actividad.component';
 import { VistaDetalleComponent } from './planes-estudio/vista-detalle/vista-detalle.component';
+import { AñadirOaComponent } from './planes-estudio/añadir-oa/añadir-oa.component';
 import { ListaOaComponent } from './objetivos-aprendizaje/lista-oa/lista-oa.component';
 
 
@@ -74,6 +75,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'planestudio/detalle', component: VistaDetalleComponent  }, 
+  { path: 'planestudio/añadir-oa', component: AñadirOaComponent  }, 
+
   { path: 'objetivos', component: ListaOaComponent }, 
   
   
@@ -117,7 +120,8 @@ const appRoutes: Routes = [
     DetallesActividadComponent,
     ModificarActividadComponent,
     VistaDetalleComponent,
-    ListaOaComponent
+    ListaOaComponent,
+    AñadirOaComponent
 
   ],
   imports: [
@@ -137,7 +141,7 @@ const appRoutes: Routes = [
     OrganizacionModule,
     CursoModule,
     NivelModule,
-    OrientacionesModule
+    OrientacionesModule,
   ],
   providers: [
     OrganizacionService, 
