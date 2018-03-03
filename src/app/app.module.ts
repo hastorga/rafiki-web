@@ -60,18 +60,12 @@ import { ListaOrientacionesComponent } from './orientaciones/lista-orientaciones
 import { DetalleOrientacionComponent } from './orientaciones/detalle-orientacion/detalle-orientacion.component';
 import { ModificarOrientacionComponent } from './orientaciones/modificar-orientacion/modificar-orientacion.component';
 import { CrearOrientacionComponent } from './orientaciones/crear-orientacion/crear-orientacion.component';
-
-
-
-
-
 import { ListaActividadesComponent } from './actividad/lista-actividades/lista-actividades.component';
-
-
 import { CrearActividadComponent } from './actividad/crear-actividad/crear-actividad.component';
 import { DetallesActividadComponent } from './actividad/detalles-actividad/detalles-actividad.component';
 import { ModificarActividadComponent } from './actividad/modificar-actividad/modificar-actividad.component';
 import { VistaDetalleComponent } from './planes-estudio/vista-detalle/vista-detalle.component';
+import { ListaOaComponent } from './objetivos-aprendizaje/lista-oa/lista-oa.component';
 
 
 
@@ -79,7 +73,8 @@ const appRoutes: Routes = [
 
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'planestudio/detalle', component: VistaDetalleComponent  },  
+  { path: 'planestudio/detalle', component: VistaDetalleComponent  }, 
+  { path: 'objetivos', component: ListaOaComponent }, 
   
   
   // { path: 'register', component: RegisterComponent },
@@ -121,7 +116,8 @@ const appRoutes: Routes = [
     CrearActividadComponent,
     DetallesActividadComponent,
     ModificarActividadComponent,
-    VistaDetalleComponent
+    VistaDetalleComponent,
+    ListaOaComponent
 
   ],
   imports: [
