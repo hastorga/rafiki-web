@@ -39,6 +39,8 @@ import { ModificarEvaluacionComponent } from './evaluacion/modificar-evaluacion/
 import { CursoModule } from './curso/curso.module';
 import { NivelModule } from './niveles/nivel.module';
 import { OrientacionesModule } from './orientaciones/orientaciones.module';
+import { PlanesEstudioModule } from './planes-estudio/planes-estudio.module';
+import { ObjetivosAprendizajeModule } from './objetivos-aprendizaje/objetivos-aprendizaje.module';
 
 import { HomeComponent } from './authentication-authorization/home/home.component';
 import { AuthGuard } from './authentication-authorization/_guards/auth.guard';
@@ -67,6 +69,7 @@ import { ModificarActividadComponent } from './actividad/modificar-actividad/mod
 import { VistaDetalleComponent } from './planes-estudio/vista-detalle/vista-detalle.component';
 import { AñadirOaComponent } from './planes-estudio/añadir-oa/añadir-oa.component';
 import { ListaOaComponent } from './objetivos-aprendizaje/lista-oa/lista-oa.component';
+
 
 
 
@@ -118,10 +121,7 @@ const appRoutes: Routes = [
     ListaActividadesComponent,
     CrearActividadComponent,
     DetallesActividadComponent,
-    ModificarActividadComponent,
-    VistaDetalleComponent,
-    ListaOaComponent,
-    AñadirOaComponent
+    ModificarActividadComponent
 
   ],
   imports: [
@@ -142,6 +142,8 @@ const appRoutes: Routes = [
     CursoModule,
     NivelModule,
     OrientacionesModule,
+    PlanesEstudioModule,
+    ObjetivosAprendizajeModule
   ],
   providers: [
     OrganizacionService, 
