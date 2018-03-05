@@ -39,6 +39,8 @@ import { ModificarEvaluacionComponent } from './evaluacion/modificar-evaluacion/
 import { CursoModule } from './curso/curso.module';
 import { NivelModule } from './niveles/nivel.module';
 import { OrientacionesModule } from './orientaciones/orientaciones.module';
+import { PlanesEstudioModule } from './planes-estudio/planes-estudio.module';
+import { ObjetivosAprendizajeModule } from './objetivos-aprendizaje/objetivos-aprendizaje.module';
 
 import { HomeComponent } from './authentication-authorization/home/home.component';
 import { AuthGuard } from './authentication-authorization/_guards/auth.guard';
@@ -60,35 +62,38 @@ import { ListaOrientacionesComponent } from './orientaciones/lista-orientaciones
 import { DetalleOrientacionComponent } from './orientaciones/detalle-orientacion/detalle-orientacion.component';
 import { ModificarOrientacionComponent } from './orientaciones/modificar-orientacion/modificar-orientacion.component';
 import { CrearOrientacionComponent } from './orientaciones/crear-orientacion/crear-orientacion.component';
-
-
-
-
-
 import { ListaActividadesComponent } from './actividad/lista-actividades/lista-actividades.component';
-
-
 import { CrearActividadComponent } from './actividad/crear-actividad/crear-actividad.component';
 import { DetallesActividadComponent } from './actividad/detalles-actividad/detalles-actividad.component';
 import { ModificarActividadComponent } from './actividad/modificar-actividad/modificar-actividad.component';
+import { VistaDetalleComponent } from './planes-estudio/vista-detalle/vista-detalle.component';
+import { AñadirOaComponent } from './planes-estudio/añadir-oa/añadir-oa.component';
+import { ListaOaComponent } from './objetivos-aprendizaje/lista-oa/lista-oa.component';
+
+
 
 
 const appRoutes: Routes = [
 
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'path-error', component: ErroresRutasComponent  },
-  { path: 'register', component: RegisterComponent },
-  { path: 'niveles/crear-nivel', component: CrearNivelComponent  },
-  { path: 'niveles', component: ListaNivelesComponent },
-  { path: 'niveles/:id', component: DetalleNivelComponent  },
-  { path: 'niveles/:id/editar', component: ModificarNivelComponent  },
-  { path: 'cursos', component: ListaCursosComponent }, // momentaneo, eliminar luego y usar el modulo completo
-  { path: 'cursos/crear-curso', component: CrearCursoComponent  },
-  { path: 'orientaciones_curriculares/crear-orientacion', component: CrearOrientacionComponent  },
-  { path: 'orientaciones_curriculares', component: ListaOrientacionesComponent  },
-  { path: 'orientaciones_curriculares/:id', component: DetalleOrientacionComponent  },
-  { path: 'orientaciones_curriculares/:id/editar', component: ModificarOrientacionComponent  },
+  { path: 'planestudio/detalle', component: VistaDetalleComponent  }, 
+  { path: 'planestudio/añadir-oa', component: AñadirOaComponent  }, 
+
+  { path: 'objetivos', component: ListaOaComponent }, 
+  
+  
+  // { path: 'register', component: RegisterComponent },
+  // { path: 'niveles/crear-nivel', component: CrearNivelComponent  },
+   { path: 'niveles', component: ListaNivelesComponent },
+  // { path: 'niveles/:id', component: DetalleNivelComponent  },
+  // { path: 'niveles/:id/editar', component: ModificarNivelComponent  },
+  // { path: 'cursos', component: ListaCursosComponent }, // momentaneo, eliminar luego y usar el modulo completo
+  // { path: 'cursos/crear-curso', component: CrearCursoComponent  },
+  // { path: 'orientaciones_curriculares/crear-orientacion', component: CrearOrientacionComponent  },
+  // { path: 'orientaciones_curriculares', component: ListaOrientacionesComponent  },
+  // { path: 'orientaciones_curriculares/:id', component: DetalleOrientacionComponent  },
+  // { path: 'orientaciones_curriculares/:id/editar', component: ModificarOrientacionComponent  },
   { path: 'path-error', component: ErroresRutasComponent  },  
   
 
@@ -96,10 +101,10 @@ const appRoutes: Routes = [
 
 
   //ACTIVIDAD
-  { path: 'actividades', component: ListaActividadesComponent },
-  { path: 'actividades/crear', component: CrearActividadComponent }, 
-  { path: 'actividades/:id', component: DetallesActividadComponent },
-  { path: 'actividades/:id/editar', component: ModificarActividadComponent },
+  // { path: 'actividades', component: ListaActividadesComponent },
+  // { path: 'actividades/crear', component: CrearActividadComponent }, 
+  // { path: 'actividades/:id', component: DetallesActividadComponent },
+  // { path: 'actividades/:id/editar', component: ModificarActividadComponent },
    { path: '**', redirectTo: 'path-error' }
 
 ];
@@ -136,7 +141,9 @@ const appRoutes: Routes = [
     OrganizacionModule,
     CursoModule,
     NivelModule,
-    OrientacionesModule
+    OrientacionesModule,
+    PlanesEstudioModule,
+    ObjetivosAprendizajeModule
   ],
   providers: [
     OrganizacionService, 

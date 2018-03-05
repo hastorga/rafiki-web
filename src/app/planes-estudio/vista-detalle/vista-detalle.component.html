@@ -1,0 +1,57 @@
+<head>
+  <meta charset="utf-8" />
+  <title>Lista de niveles </title>
+  <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+</head>
+
+
+<div *ngIf="nivel" [@animation]="nivel.length">
+  <div id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="card">
+      <h3 class="card-header">Vista de planes de estudio</h3>
+      <div class="card-header " *ngFor="let nivel of nivel.data; let j = index " role="tab" id="headingOne">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" data-parent="#accordion" href="#{{nivel._id}}" aria-expanded="true" aria-controls="collapseOne">
+            Nivel: {{nivel.grado}}º - {{nivel.tipo_nivel}}
+          </a>
+        </h5>
+        
+        <hr>
+
+        <div id="{{nivel._id}}" class="collapse show" role="tabpanel" aria-labelledby="nivel._id">
+          <div class="card-block">
+
+            <h6 align="left"> Objetivos de aprendizaje del nivel </h6>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">MongoDB ID</th>
+                  <th scope="col">Tipo de objetivo de aprendizaje</th>
+                  <th scope="col">Descripción</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let oa of nivel.oa; let k = index ">
+                <tr>
+                  <th scope="row">{{k+1}} </th>
+                  <td>{{oa._id}}</td>
+                  <td>{{oa.tipo}}</td>
+                  <td>{{oa.descripcion}}</td>
+                </tr>
+                
+              </tbody>
+              
+               
+               
+            </table>
+            <div class="btn-group float-sm-left " > 
+              <a routerLink="/objetivos/"><button  class="btn btn-secondary btn-sm " > Ver lista completa de OAs </button> </a> 
+              <a routerLink="/planestudio/añadir-oa/"><button class="btn btn-primary btn-sm" > Añadir OA </button> </a> 
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
