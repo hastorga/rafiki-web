@@ -1,68 +1,7 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-    <main class="container pt-5">
-        
-        <table class="table table-bordered table-definition mb-5">
-            <thead class="table-warning ">
-                <tr>
-                    <th></th>
-                    <th>Name</th>
-                    <th>Registration Date</th>
-                    <th>E-mail address</th>
-                    <th>Premium Plan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <label class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                        </label>
-                    </td>
-                    <td>John Lilki</td>
-                    <td>September 14, 2013</td>
-                    <td>jhlilk22@yahoo.com</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                        </label>
-                    </td>
-                    <td>John Lilki</td>
-                    <td>September 14, 2013</td>
-                    <td>jhlilk22@yahoo.com</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                        </label>
-                    </td>
-                    <td>John Lilki</td>
-                    <td>September 14, 2013</td>
-                    <td>jhlilk22@yahoo.com</td>
-                    <td>No</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th></th>
-                    <th colspan="4">
-                        <button class="btn btn-primary float-right">Add User</button>
-                        <button class="btn btn-default">Approve</button>
-                        <button class="btn btn-default">Approve All</button>
-                    </th>
-                </tr>
-            </tfoot>
-        </table>
-       
-    </main>
+<div class="checkbox">
+    <label>
+        <input type="checkbox" [checked]="guardar_objetivo" (change)="guardar_objetivo = !guardar_objetivo" />  Remember me
+    </label>
+</div>
+
